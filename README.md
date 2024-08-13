@@ -51,6 +51,6 @@ Combines multiple input video files into a single output file. Provide a list of
 ### Effect:
 ### cmvideoediter effect <inputFile> <outputFile> <effect>
 Applies a video effect to the input file and saves the result to the output file.
-### Options--help: Displays the help message.
+### Options --help: Displays the help message.
 # License
 This project is licensed under the MIT License. See the LICENSE file for details.
