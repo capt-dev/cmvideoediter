@@ -43,14 +43,17 @@ Run cmvideoediter from the terminal with the following syntax:
 ### cmvideoediter <action> <options>
 # Actions
 ### Cut:
-### cmvideoediter cut <inputFile> <outputFile> <startTime> <duration>
+### cmvideoediter cut <inputFile> <outputFile> <startTime> <duration> <other_ffmpeg_options>
 Cuts a portion of the input video starting at <startTime> with the given <duration>.
 ### Combine:
-### cmvideoediter combine <outputFile> <inputFiles...>
+### cmvideoediter combine <outputFile> <inputFiles...> <other_ffmpeg_options>
 Combines multiple input video files into a single output file. Provide a list of input files.
 ### Effect:
-### cmvideoediter effect <inputFile> <outputFile> <effect>
+### cmvideoediter effect <inputFile> <outputFile> <effect> <other_ffmpeg_options>
 Applies a video effect to the input file and saves the result to the output file.
+### changing Codec:
+### change-format <inputFile> <outputFile> --audio=<audioCodec> --video=<videoCodec> <other_ffmpeg_options>
+Changes the format of the input file, specifying audio and video codecs.
 ### Options --help: Displays the help message.
 # License
 This project is licensed under the MIT License. See the LICENSE file for details.
