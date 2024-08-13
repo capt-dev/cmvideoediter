@@ -40,13 +40,17 @@ make install
 ```
 # Usage
 Run cmvideoediter from the terminal with the following syntax:
-cmvideoediter <action> <options>
-Actions
-Cut:
-cmvideoediter cut <inputFile> <outputFile> <startTime> <duration>
-Cuts a portion of the input video starting at <startTime> with the given <duration>.
-Combine:cmvideoediter combine <outputFile> <inputFiles...>Combines multiple input video files into a single output file. Provide a list of input files.
-Effect:cmvideoediter effect <inputFile> <outputFile> <effect> Applies a video effect to the input file and saves the result to the output file.
-Options--help: Displays the help message.
+### cmvideoediter <action> <options>
+### Actions
+### Cut:
+### cmvideoediter cut <inputFile> <outputFile> <startTime> <duration>
+### Cuts a portion of the input video starting at <startTime> with the given <duration>.
+### Combine:
+### cmvideoediter combine <outputFile> <inputFiles...>
+### Combines multiple input video files into a single output file. Provide a list of input files.
+### Effect:
+### cmvideoediter effect <inputFile> <outputFile> <effect>
+Applies a video effect to the input file and saves the result to the output file.
+### Options--help: Displays the help message.
 # License
 This project is licensed under the MIT License. See the LICENSE file for details.
