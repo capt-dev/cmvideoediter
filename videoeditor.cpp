@@ -1,13 +1,13 @@
 #include "videoeditor.h"
-#include <cstdlib> // for system()
+#include <cstdlib>
 #include <fstream>
 
-bool VideoEditor::CutVideo(const std::string& inputFile, const std::string& outputFile, const std::string& startTime, const std::string& duration) {
-    std::string command = "ffmpeg -i " + inputFile + " -ss " + startTime + " -t " + duration + " -c copy " + outputFile;
+bool VideoEditor::CutVideo(const std::string& inputFile, const std::string& outputFile, const std::string& startTime, const std::string& duration, const std::string& additionalOptions) {
+    std::string command = "ffmpeg -i " + inputFile + " -ss " + startTime + " -t " + duration + " " + additionalOptions + " " + outputFile;
     return system(command.c_str()) == 0;
 }
 
-bool VideoEditor::CombineClips(const std::vector<std::string>& inputFiles, const std::string& outputFile) {
+bool VideoEditor::CombineClips(const std::vector<std::string>& inputFiles, const std::string& outputFile, const std::string& additionalOptions) {
     std::string fileList = "filelist.txt";
     std::ofstream outFile(fileList);
     for (const auto& file : inputFiles) {
@@ -15,11 +15,16 @@ bool VideoEditor::CombineClips(const std::vector<std::string>& inputFiles, const
     }
     outFile.close();
 
-    std::string command = "ffmpeg -f concat -safe 0 -i " + fileList + " -c copy " + outputFile;
+    std::string command = "ffmpeg -f concat -safe 0 -i " + fileList + " " + additionalOptions + " " + outputFile;
     return system(command.c_str()) == 0;
 }
 
-bool VideoEditor::AddEffect(const std::string& inputFile, const std::string& outputFile, const std::string& effect) {
-    std::string command = "ffmpeg -i " + inputFile + " -vf " + effect + " " + outputFile;
+bool VideoEditor::AddEffect(const std::string& inputFile, const std::string& outputFile, const std::string& effect, const std::string& additionalOptions) {
+    std::string command = "ffmpeg -i " + inputFile + " -vf " + effect + " " + additionalOptions + " " + outputFile;
+    return system(command.c_str()) == 0;
+}
+
+bool VideoEditor::ChangeFormat(const std::string& inputFile, const std::string& outputFile, const std::string& audioCodec, const std::string& videoCodec, const std::string& additionalOptions) {
+    std::string command = "ffmpeg -i " + inputFile + " -c:a " + audioCodec + " -c:v " + videoCodec + " " + additionalOptions + " " + outputFile;
     return system(command.c_str()) == 0;
 }
