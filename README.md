@@ -19,6 +19,7 @@ Make sure you have the following dependencies installed:
 - `cmake`
 - `pkg-config`
 - `git`
+
 they can be installed via
 ```sh
 apt update && apt upgrade && apt install clang ffmpeg make cmake pkg-config git
